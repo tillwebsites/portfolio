@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Qasar Al Qasimiah — Pakistani Restaurant in Al Nad, Sharjah (Portfolio Demo)</title>
+<meta name="description" content="Qasar Al Qasimiah is a Pakistani restaurant in Al Nad, Sharjah serving biryani, karahi and tandoor grills for dine-in, takeaway and delivery.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:        #2A2119;
+  --ink-soft:   #5B5245;
+  --ink-faint:  #857A69;
+  --paper:      #EFE8D8;
+  --paper-alt:  #E3D9C3;
+  --paper-deep: #DCCFB3;
+  --card:       #F7F2E6;
+  --line:       rgba(42, 33, 25, 0.14);
+  --line-strong:rgba(42, 33, 25, 0.28);
+  --maroon:     #8A2C1F;
+  --maroon-dark:#6E2118;
+  --mustard:    #B8862E;
+  --green:      #3E4A34;
+  --max: 1180px;
+}
+
+*, *::before, *::after{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  *, *::before, *::after{ animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+body{
+  margin: 0;
+  background-color: var(--paper);
+  background-image: radial-gradient(rgba(42,33,25,0.05) 0.6px, transparent 0.6px);
+  background-size: 3px 3px;
+  color: var(--ink);
+  font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+.demo-banner {
+  background-color: var(--maroon);
+  color: #FBF6EA;
+  text-align: center;
+  padding: 8px 15px;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.kilim{
+  height: 9px;
+  background-color: var(--mustard);
+  background-image:
+    linear-gradient(135deg, var(--paper) 25%, transparent 25%),
+    linear-gradient(225deg, var(--paper) 25%, transparent 25%),
+    linear-gradient(45deg, var(--paper) 25%, transparent 25%),
+    linear-gradient(315deg, var(--paper) 25%, transparent 25%);
+  background-position: 9px 0, 9px 0, 0 0, 0 0;
+  background-size: 18px 18px;
+  background-repeat: repeat-x;
+}
+.kilim-dark{
+  height: 9px;
+  background-color: var(--mustard);
+  background-image:
+    linear-gradient(135deg, var(--ink) 25%, transparent 25%),
+    linear-gradient(225deg, var(--ink) 25%, transparent 25%),
+    linear-gradient(45deg, var(--ink) 25%, transparent 25%),
+    linear-gradient(315deg, var(--ink) 25%, transparent 25%);
+  background-position: 9px 0, 9px 0, 0 0, 0 0;
+  background-size: 18px 18px;
+  background-repeat: repeat-x;
+}
+
+.reveal{
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.in{ opacity: 1; transform: none; }
+
+h1, h2, h3, h4{
+  font-family: 'Roboto Slab', Georgia, serif;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 0.4em;
+  line-height: 1.15;
+}
+
+p{ margin: 0 0 1em; }
+a{ color: inherit; text-decoration: none; }
+img{ max-width: 100%; display: block; }
+ul{ margin: 0; padding: 0; list-style: none; }
+
+.container{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.eyebrow{
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12.5px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--maroon);
+  margin: 0 0 0.9em;
+  font-weight: 500;
+}
+
+.mono{ font-family: 'IBM Plex Mono', monospace; }
+
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  padding: 0.85em 1.5em;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 2px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+.btn:active{ transform: translateY(1px); }
+.btn-primary{
+  background: var(--maroon);
+  color: #FBF6EA;
+  border-color: var(--maroon);
+}
+.btn-primary:hover{ background: var(--maroon-dark); border-color: var(--maroon-dark); }
+.btn-outline{
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line-strong);
+}
+.btn-outline:hover{ border-color: var(--ink); background: rgba(42,33,25,0.05); }
+.btn-block{ width: 100%; }
+.btn-sm{ padding: 0.6em 1.1em; font-size: 13.5px; }
+
+:focus-visible{ outline: 2px solid var(--maroon); outline-offset: 2px; }
+
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+.header-inner{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo{
+  font-family: 'Roboto Slab', serif;
+  font-weight: 700;
+  font-size: 19px;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+.logo span{
+  display: block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 500;
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mustard);
+  margin-top: 3px;
+}
+
+.nav-toggle{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 34px;
+  height: 34px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.nav-toggle span{
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--ink);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(1){ transform: translateY(7px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2){ opacity: 0; }
+.nav-toggle[aria-expanded="true"] span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
+
+.main-nav{
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.22s ease;
+}
+.main-nav.open{ max-height: 400px; }
+.main-nav a{
+  padding: 14px 20px;
+  border-top: 1px solid var(--line);
+  font-weight: 500;
+  font-size: 15px;
+}
+.main-nav a:first-child{ border-top: none; }
+.main-nav a.active{ color: var(--maroon); font-weight: 600; }
+.main-nav a:hover{ background: rgba(42,33,25,0.04); }
+
+.info-bar{
+  background: var(--ink);
+  color: #E9DFC9;
+}
+.info-bar-inner{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 9px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.info-bar-inner::-webkit-scrollbar{ display: none; }
+.info-sep{ color: rgba(233,223,201,0.35); }
+.info-link{ color: #E9DFC9; border-bottom: 1px solid rgba(233,223,201,0.4); padding-bottom: 1px; }
+.info-link:hover{ color: #fff; border-color: #fff; }
+.order-link{ color: #D9A441; border-color: rgba(217,164,65,0.5); }
+
+@media (min-width: 860px){
+  .header-inner{ padding: 20px 20px; }
+  .nav-toggle{ display: none; }
+  .main-nav{
+    position: static;
+    flex-direction: row;
+    max-height: none;
+    overflow: visible;
+    background: transparent;
+    border: none;
+    gap: 30px;
+  }
+  .main-nav a{
+    padding: 0;
+    border-top: none;
+    font-size: 14.5px;
+    position: relative;
+  }
+  .main-nav a::after{
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -6px;
+    height: 2px;
+    background: var(--maroon);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s ease;
+  }
+  .main-nav a:hover::after,
+  .main-nav a.active::after{ transform: scaleX(1); }
+  .main-nav a:hover{ background: none; }
+  .info-bar-inner{ font-size: 12.5px; gap: 14px; }
+}
+
+.hero{
+  display: flex;
+  flex-direction: column;
+}
+.hero-media{
+  height: 46vh;
+  min-height: 300px;
+  overflow: hidden;
+  position: relative;
+  background: var(--paper-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-media::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(135deg, rgba(42,33,25,0.055) 0px, rgba(42,33,25,0.055) 1px, transparent 1px, transparent 13px);
+}
+.hero-media .kilim{ position: absolute; left: 0; right: 0; bottom: 0; }
+.hero-mark{
+  position: relative;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 700;
+  font-size: clamp(150px, 32vw, 230px);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(42,33,25,0.4);
+  user-select: none;
+}
+.hero-media-caption{
+  position: absolute;
+  left: 18px;
+  bottom: 20px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.hero-copy{
+  padding: 34px 20px 30px;
+  max-width: var(--max);
+  margin: 0 auto;
+  width: 100%;
+}
+.hero-copy h1{ font-size: 34px; margin-bottom: 0.3em; }
+.hero-desc{ font-size: 16px; color: var(--ink-soft); max-width: 46ch; }
+.hero-actions{
+  display: flex;
+  gap: 12px;
+  margin: 20px 0 26px;
+  flex-wrap: wrap;
+}
+.hero-facts{
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+  display: grid;
+  gap: 10px;
+}
+.hero-facts li{ font-size: 14px; color: var(--ink-soft); }
+.hero-facts strong{
+  display: inline-block;
+  min-width: 108px;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+@media (min-width: 900px){
+  .hero{ flex-direction: row-reverse; align-items: stretch; }
+  .hero-media, .hero-copy{ width: 50%; }
+  .hero-media{ height: auto; min-height: 560px; }
+  .hero-mark{ font-size: clamp(220px, 17vw, 300px); }
+  .hero-copy{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 60px 40px 40px;
+    margin: 0;
+  }
+  .hero-copy h1{ font-size: 44px; }
+  .hero-facts{ grid-template-columns: 1fr 1fr; max-width: 480px; }
+}
+
+.section{ padding: 52px 0; }
+.section-alt{ background: var(--paper-alt); }
+.section-head{
+  margin-bottom: 28px;
+  max-width: 56ch;
+}
+.section-head h2{ font-size: 26px; }
+.section-head p{ color: var(--ink-soft); margin: 0; }
+.section-foot{ margin-top: 22px; }
+.text-link{
+  font-weight: 600;
+  border-bottom: 1.5px solid var(--maroon);
+  padding-bottom: 2px;
+  color: var(--maroon);
+}
+.text-link:hover{ color: var(--maroon-dark); border-color: var(--maroon-dark); }
+
+.ph{
+  background: var(--card);
+  background-image: repeating-linear-gradient(135deg, rgba(42,33,25,0.035) 0px, rgba(42,33,25,0.035) 1px, transparent 1px, transparent 10px);
+  border: 1px solid var(--line-strong);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px;
+}
+.ph-icon{ width: 26px; height: 26px; margin-bottom: 10px; color: var(--ink-faint); opacity: 0.65; }
+.ph-name{ font-family: 'Roboto Slab', serif; font-weight: 600; color: var(--ink-soft); font-size: 14.5px; margin-bottom: 3px; }
+.ph-tag{ font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); }
+.ph-a{ background-color: var(--paper-alt); }
+.ph-b{ background-color: var(--paper-deep); }
+
+.dish-row{
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  scroll-snap-type: x mandatory;
+  margin: 0 -20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.dish-row::-webkit-scrollbar{ height: 6px; }
+.dish-row::-webkit-scrollbar-thumb{ background: var(--line-strong); }
+.dish{
+  flex: 0 0 68%;
+  scroll-snap-align: start;
+  margin: 0;
+}
+.dish .ph{ height: 230px; }
+.dish figcaption{
+  margin-top: 10px;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+@media (min-width: 720px){
+  .dish-row{
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    overflow: visible;
+    margin: 0;
+    padding: 0;
+  }
+  .dish-lg{ grid-row: span 2; }
+  .dish-lg .ph{ height: 100%; min-height: 460px; }
+  .dish:not(.dish-lg) .ph{ height: 214px; }
+}
+
+.split{
+  display: grid;
+  gap: 26px;
+}
+.split .ph{ width: 100%; height: 260px; }
+@media (min-width: 860px){
+  .split{ grid-template-columns: 1fr 1fr; align-items: center; gap: 50px; }
+  .split .ph{ height: 380px; }
+  .split.reverse{ direction: rtl; }
+  .split.reverse > *{ direction: ltr; }
+}
+
+.info-panel{
+  border-top: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--line-strong);
+  padding: 28px 0;
+  display: grid;
+  gap: 22px;
+}
+.info-panel dt{
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 4px;
+}
+.info-panel dd{
+  margin: 0 0 18px;
+  font-size: 16px;
+}
+.info-panel .btn-row{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+@media (min-width: 860px){
+  .info-panel{ grid-template-columns: 1.1fr 1fr; gap: 40px; }
+  .info-panel dd{ margin-bottom: 20px; }
+}
+
+.site-footer{
+  background: var(--ink);
+  color: #DFD5BE;
+  padding: 0 0 26px;
+}
+.site-footer .kilim-dark{ margin-bottom: 40px; }
+.footer-grid{
+  display: grid;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+.footer-brand .logo-mark{
+  font-family: 'Roboto Slab', serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #F4EEDD;
+}
+.footer-brand p{ color: #B9AD90; margin-top: 8px; max-width: 34ch; font-size: 14px; }
+.footer-col h4{
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #B9AD90;
+  margin-bottom: 12px;
+}
+.footer-col a, .footer-col li{
+  display: block;
+  color: #DFD5BE;
+  font-size: 14.5px;
+  margin-bottom: 8px;
+}
+.footer-col a:hover{ color: #fff; }
+.footer-bottom{
+  border-top: 1px solid rgba(223,213,190,0.15);
+  padding-top: 18px;
+  font-size: 12.5px;
+  color: #9A8E72;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  justify-content: space-between;
+}
+@media (min-width: 720px){
+  .footer-grid{ grid-template-columns: 1.4fr 1fr 1fr 1fr; }
+}
+
+.page-head{
+  padding: 40px 0 30px;
+  border-bottom: 1px solid var(--line);
+}
+.page-head h1{ font-size: 30px; }
+.page-head p{ color: var(--ink-soft); max-width: 56ch; margin: 0; }
+
+.menu-note{
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: 18px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 18px;
+  justify-content: space-between;
+  margin: 24px 0 8px;
+}
+.menu-note p{ margin: 0; font-size: 14.5px; color: var(--ink-soft); max-width: 46ch; }
+
+.menu-tabs-wrap{
+  position: sticky;
+  top: 105px;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line-strong);
+  z-index: 30;
+  margin-top: 18px;
+}
+@media (min-width: 860px){ .menu-tabs-wrap{ top: 117px; } }
+.menu-tabs{
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.menu-tabs::-webkit-scrollbar{ display: none; }
+.menu-tabs a{
+  flex: 0 0 auto;
+  padding: 13px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  border-bottom: 2.5px solid transparent;
+  white-space: nowrap;
+}
+.menu-tabs a.active{ color: var(--maroon); border-color: var(--maroon); }
+
+.menu-category{
+  padding: 40px 0 8px;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 165px;
+}
+.menu-category:last-child{ border-bottom: none; }
+.menu-category-head{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.menu-category-head h2{ font-size: 22px; margin: 0; position: relative; padding-bottom: 10px; }
+.menu-category-head h2::after{
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 34px; height: 3px;
+  background: var(--mustard);
+}
+.menu-category-head span{
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--ink-faint);
+}
+.menu-list li{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 13px 0;
+  border-top: 1px solid var(--line);
+  font-size: 16px;
+}
+.menu-list li:first-child{ border-top: none; }
+.menu-list .dish-name{ font-family: 'Roboto Slab', serif; font-weight: 500; }
+.menu-list .dish-tag{
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11.5px;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.masonry{
+  column-count: 2;
+  column-gap: 10px;
+}
+.masonry .ph{
+  width: 100%;
+  margin-bottom: 10px;
+  break-inside: avoid;
+}
+@media (min-width: 720px){ .masonry{ column-count: 3; column-gap: 14px; } .masonry .ph{ margin-bottom: 14px; } }
+
+.detail-grid{
+  display: grid;
+  gap: 34px;
+}
+@media (min-width: 900px){ .detail-grid{ grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; } }
+
+.detail-list dt{
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin: 22px 0 5px;
+}
+.detail-list dt:first-child{ margin-top: 0; }
+.detail-list dd{ margin: 0; font-size: 17px; }
+.detail-list dd.muted{ color: var(--ink-soft); font-size: 14px; margin-top: 4px; }
+.detail-list a.dd-link{ border-bottom: 1px solid var(--line-strong); }
+.detail-list a.dd-link:hover{ border-color: var(--ink); }
+
+.map-frame{
+  border: 1px solid var(--line-strong);
+  height: 340px;
+  width: 100%;
+}
+.map-frame iframe{ width: 100%; height: 100%; border: 0; display: block; }
+
+.contact-cards{
+  display: grid;
+  gap: 16px;
+}
+.contact-card{
+  border: 1px solid var(--line-strong);
+  padding: 22px 22px;
+}
+.contact-card h3{
+  font-size: 13px;
+  font-family: 'IBM Plex Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--ink-faint);
+  margin-bottom: 10px;
+}
+.contact-card .value{ font-size: 19px; font-weight: 600; margin-bottom: 14px; }
+@media (min-width: 720px){ .contact-cards{ grid-template-columns: 1fr 1fr; } }
+
+.about-facts{
+  display: grid;
+  gap: 20px;
+  margin-top: 10px;
+}
+@media (min-width: 720px){ .about-facts{ grid-template-columns: repeat(3, 1fr); } }
+.about-facts div{ border-top: 2px solid var(--mustard); padding-top: 12px; }
+.about-facts h4{ font-size: 15px; margin-bottom: 4px; }
+.about-facts p{ font-size: 14px; color: var(--ink-soft); margin: 0; }
+</style>
+</head>
+<body>
+
+<div class="demo-banner">
+  Portfolio Showcase Project — Unofficial concept layout, not officially endorsed by or affiliated with any real establishment.
+</div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#home" class="logo">Qasar Al Qasimiah<span>Pakistani Restaurant</span></a>
+    <nav class="main-nav" id="mainNav">
+      <a href="#home" class="active">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#about">About</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#location">Location</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="info-bar">
+    <div class="info-bar-inner">
+      <span class="info-item">Al Nad, Sharjah</span>
+      <span class="info-sep">·</span>
+      <span class="info-item">Daily 11:00 AM – 2:00 AM</span>
+      <span class="info-sep">·</span>
+      <a class="info-item info-link" href="tel:+971527541006">+971 52 754 1006</a>
+      <span class="info-sep">·</span>
+      <a class="info-item info-link order-link" href="https://www.talabat.com/uae/restaurant/39297/qasar-al-qasimiah-restaurant-al-nad?aid=1547" target="_blank" rel="noopener">Order Delivery</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HOME SECTION -->
+  <section id="home">
+    <div class="hero">
+      <div class="hero-media">
+        <span class="hero-mark">Q</span>
+        <span class="hero-media-caption">Qasar Al Qasimiah</span>
+        <div class="kilim"></div>
+      </div>
+      <div class="hero-copy">
+        <p class="eyebrow">Pakistani Kitchen — Al Nad, Sharjah</p>
+        <h1>Qasar Al Qasimiah</h1>
+        <p class="hero-desc">Home-style Pakistani and Indian cooking — biryani, karahi and tandoor grills — for dine-in, takeaway and delivery.</p>
+        <div class="hero-actions">
+          <a href="#menu" class="btn btn-primary">View Menu</a>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Qasar+Al+Qasimiah+Restaurant%2C+Lootah+Building%2C+Al+Nad%2C+Al+Qasimia%2C+Sharjah" class="btn btn-outline" target="_blank" rel="noopener">Get Directions</a>
+        </div>
+        <ul class="hero-facts">
+          <li><strong>Cuisine</strong> Pakistani · Indian</li>
+          <li><strong>Good for two</strong> approx. AED 55–60</li>
+          <li><strong>Hours</strong> Daily, 11:00 AM – 2:00 AM*</li>
+          <li><strong>Service</strong> Dine-in · Takeaway · Delivery</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>A few of our regulars</h2>
+          <p>Dishes people keep coming back for.</p>
+        </div>
+        <div class="dish-row reveal">
+          <figure class="dish dish-lg">
+            <div class="ph ph-b">
+              <span class="ph-name">Chicken Karahi</span>
+              <span class="ph-tag">Placeholder</span>
+            </div>
+          </figure>
+          <figure class="dish">
+            <div class="ph">
+              <span class="ph-name">Seekh Kebab</span>
+              <span class="ph-tag">Placeholder</span>
+            </div>
+          </figure>
+          <figure class="dish">
+            <div class="ph ph-a">
+              <span class="ph-name">Fresh Naan</span>
+              <span class="ph-tag">Placeholder</span>
+            </div>
+          </figure>
+          <figure class="dish">
+            <div class="ph ph-b">
+              <span class="ph-name">BBQ Platter</span>
+              <span class="ph-tag">Placeholder</span>
+            </div>
+          </figure>
+        </div>
+        <div class="section-foot">
+          <a href="#menu" class="text-link">See the full menu →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU SECTION -->
+  <section id="menu" class="section section-alt">
+    <div class="container">
+      <div class="page-head">
+        <p class="eyebrow">Menu</p>
+        <h1>What we serve</h1>
+        <p>Pakistani and Indian dishes cooked to order — biryani and pulao, karahi and curries, tandoor grills, and a short list of desserts and drinks to finish.</p>
+      </div>
+
+      <div class="menu-note reveal">
+        <p>Prices vary by portion and change from time to time. For full pricing and to order online, see our Talabat page.</p>
+        <a href="https://www.talabat.com/uae/restaurant/39297/qasar-al-qasimiah-restaurant-al-nad?aid=1547" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Order &amp; See Prices</a>
+      </div>
+    </div>
+
+    <div class="menu-tabs-wrap">
+      <div class="container">
+        <nav class="menu-tabs">
+          <a href="#biryani">Biryani &amp; Rice</a>
+          <a href="#karahi">Karahi &amp; Curries</a>
+          <a href="#bbq">BBQ &amp; Grills</a>
+          <a href="#breads">Breads &amp; Sides</a>
+          <a href="#snacks">Fast Food &amp; Snacks</a>
+          <a href="#desserts">Desserts &amp; Drinks</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="menu-category" id="biryani">
+        <div class="menu-category-head">
+          <h2>Biryani &amp; Rice</h2>
+          <span>01</span>
+        </div>
+        <ul class="menu-list">
+          <li><span class="dish-name">Chicken Biryani</span><span class="dish-tag">Chicken</span></li>
+          <li><span class="dish-name">Mutton Biryani</span><span class="dish-tag">Mutton</span></li>
+          <li><span class="dish-name">Chicken Pulao</span><span class="dish-tag">Chicken</span></li>
+          <li><span class="dish-name">Daal Chawal</span><span class="dish-tag">Veg</span></li>
+        </ul>
+      </div>
+
+      <div class="menu-category" id="karahi">
+        <div class="menu-category-head">
+          <h2>Karahi &amp; Curries</h2>
+          <span>02</span>
+        </div>
+        <ul class="menu-list">
+          <li><span class="dish-name">Chicken Karahi</span><span class="dish-tag">Chicken</span></li>
+          <li><span class="dish-name">Mutton Karahi</span><span class="dish-tag">Mutton</span></li>
+          <li><span class="dish-name">Chicken Handi</span><span class="dish-tag">Chicken</span></li>
+          <li><span class="dish-name">Aalo Gosht</span><span class="dish-tag">Mutton</span></li>
+          <li><span class="dish-name">Nihari</span><span class="dish-tag">Beef</span></li>
+          <li><span class="dish-name">Haleem</span><span class="dish-tag">Mixed</span></li>
+        </ul>
+      </div>
+
+      <div class="menu-category" id="bbq">
+        <div class="menu-category-head">
+          <h2>BBQ &amp; Grills</h2>
+          <span>03</span>
+        </div>
+        <ul class="menu-list">
+          <li><span class="dish-name">Seekh Kebab</span><span class="dish-tag">Beef</span></li>
+          <li><span class="dish-name">Chicken Tikka</span><span class="dish-tag">Chicken</span></li>
+          <li><span class="dish-name">Chicken Boti</span><span class="dish-tag">Chicken</span></li>
+          <li><span class="dish-name">Mixed Grill Platter</span><span class="dish-tag">Mixed</span></li>
+        </ul>
+      </div>
+
+      <div class="menu-category" id="breads">
+        <div class="menu-category-head">
+          <h2>Breads &amp; Sides</h2>
+          <span>04</span>
+        </div>
+        <ul class="menu-list">
+          <li><span class="dish-name">Roghni Naan</span></li>
+          <li><span class="dish-name">Plain Naan</span></li>
+          <li><span class="dish-name">Paratha</span></li>
+          <li><span class="dish-name">Chana Puri</span></li>
+        </ul>
+      </div>
+
+      <div class="menu-category" id="snacks">
+        <div class="menu-category-head">
+          <h2>Fast Food &amp; Snacks</h2>
+          <span>05</span>
+        </div>
+        <ul class="menu-list">
+          <li><span class="dish-name">Chicken Roll</span></li>
+          <li><span class="dish-name">Zinger Burger</span></li>
+          <li><span class="dish-name">French Fries</span></li>
+          <li><span class="dish-name">Club Sandwich</span></li>
+        </ul>
+      </div>
+
+      <div class="menu-category" id="desserts">
+        <div class="menu-category-head">
+          <h2>Desserts &amp; Drinks</h2>
+          <span>06</span>
+        </div>
+        <ul class="menu-list">
+          <li><span class="dish-name">Matka Rabri</span></li>
+          <li><span class="dish-name">Kulfi</span></li>
+          <li><span class="dish-name">Gola Ganda</span></li>
+          <li><span class="dish-name">Karak Chai</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container" style="padding: 20px 20px 0;">
+      <p style="color:var(--ink-soft); font-size: 14px; max-width: 60ch;">Menu items reflect dishes the restaurant is known for and may change. Ask our staff about daily specials and current availability.</p>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="page-head">
+        <p class="eyebrow">About</p>
+        <h1>Pakistani cooking, the everyday kind</h1>
+        <p>A straightforward neighbourhood kitchen in Al Nad — no frills, just the dishes people grew up eating.</p>
+      </div>
+
+      <div class="split reverse reveal" style="margin-top: 30px;">
+        <div>
+          <p>Qasar Al Qasimiah is a Pakistani restaurant on Abdullah Bin Suhail Street in Al Nad, Sharjah, serving Pakistani and Indian food for dine-in, takeaway and delivery. The menu runs from biryani, karahi and tandoor barbecue to old-fashioned favourites like nihari, haleem and daal chawal, plus a short line-up of fast food and desserts.</p>
+          <p>It's a casual, no-frills spot rather than a fine-dining one — the kind of place regulars call ahead for a takeaway order on their way home, or settle into for a late dinner after everything else nearby has closed. The kitchen stays open into the early hours, which has made it a regular stop for shift workers and late-night diners in the area.</p>
+        </div>
+        <div class="ph ph-b">
+          <span class="ph-tag">Placeholder</span>
+        </div>
+      </div>
+
+      <div class="about-facts reveal">
+        <div>
+          <h4>Cuisine</h4>
+          <p>Pakistani &amp; Indian — biryani, karahi, BBQ and Pakistani street food.</p>
+        </div>
+        <div>
+          <h4>Service style</h4>
+          <p>Casual dine-in, takeaway counter, and delivery through Talabat.</p>
+        </div>
+        <div>
+          <h4>Hours</h4>
+          <p>Open daily into the early hours — roughly 11:00 AM to 2:00 AM.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY SECTION -->
+  <section id="gallery" class="section section-alt">
+    <div class="container">
+      <div class="page-head">
+        <p class="eyebrow">Gallery</p>
+        <h1>From the kitchen</h1>
+        <p>Real photos of our food and dining room are on the way — for now, here's what to expect on the plate.</p>
+      </div>
+
+      <div class="masonry reveal" style="margin-top: 30px;">
+        <div class="ph ph-b" style="height:230px;"><span class="ph-name">Chicken Biryani</span><span class="ph-tag">Placeholder</span></div>
+        <div class="ph" style="height:190px;"><span class="ph-name">Mutton Karahi</span><span class="ph-tag">Placeholder</span></div>
+        <div class="ph ph-a" style="height:260px;"><span class="ph-name">Seekh Kebab</span><span class="ph-tag">Placeholder</span></div>
+        <div class="ph" style="height:210px;"><span class="ph-name">BBQ Platter</span><span class="ph-tag">Placeholder</span></div>
+        <div class="ph ph-b" style="height:245px;"><span class="ph-name">Fresh Naan</span><span class="ph-tag">Placeholder</span></div>
+        <div class="ph ph-a" style="height:200px;"><span class="ph-name">Chicken Handi</span><span class="ph-tag">Placeholder</span></div>
+        <div class="ph" style="height:225px;"><span class="ph-name">Nihari</span><span class="ph-tag">Placeholder</span></div>
+        <div class="ph ph-b" style="height:195px;"><span class="ph-name">Chana Puri</span><span class="ph-tag">Placeholder</span></div>
+        <div class="ph ph-a" style="height:255px;"><span class="ph-name">Matka Rabri</span><span class="ph-tag">Placeholder</span></div>
+        <div class="ph" style="height:215px;"><span class="ph-name">Kulfi</span><span class="ph-tag">Placeholder</span></div>
+        <div class="ph ph-b" style="height:235px;"><span class="ph-name">Gola Ganda</span><span class="ph-tag">Placeholder</span></div>
+        <div class="ph ph-a" style="height:200px;"><span class="ph-name">Karak Chai</span><span class="ph-tag">Placeholder</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION SECTION -->
+  <section id="location" class="section">
+    <div class="container">
+      <div class="page-head">
+        <p class="eyebrow">Location &amp; Hours</p>
+        <h1>Find us</h1>
+        <p>In Al Nad, Sharjah — a short walk from Maha Regency Suites on Abdullah Bin Suhail Street.</p>
+      </div>
+
+      <div class="detail-grid reveal" style="margin-top: 30px;">
+        <div>
+          <dl class="detail-list">
+            <dt>Address</dt>
+            <dd>Lootah Buildings, Al Nad, Al Qasimia, Sharjah, UAE</dd>
+            <dd class="muted">Near Maha Regency Suites, Abdullah Bin Suhail Street</dd>
+
+            <dt>Hours</dt>
+            <dd>Daily, approx. 11:00 AM – 2:00 AM</dd>
+            <dd class="muted">Hours can vary by day — please call ahead to confirm</dd>
+
+            <dt>Phone</dt>
+            <dd><a class="dd-link" href="tel:+971527541006">+971 52 754 1006</a></dd>
+
+            <dt>Landline</dt>
+            <dd><a class="dd-link" href="tel:+97165515278">+971 6 551 5278</a></dd>
+
+            <dt>Service</dt>
+            <dd class="muted">Dine-in · Takeaway · Delivery</dd>
+          </dl>
+
+          <div class="btn-row" style="display:flex; gap:12px; margin-top:26px; flex-wrap:wrap;">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Qasar+Al+Qasimiah+Restaurant%2C+Lootah+Building%2C+Al+Nad%2C+Al+Qasimia%2C+Sharjah" target="_blank" rel="noopener" class="btn btn-primary">Get Directions</a>
+            <a href="tel:+971527541006" class="btn btn-outline">Call Now</a>
+          </div>
+        </div>
+
+        <div class="map-frame">
+          <iframe
+            src="https://www.google.com/maps?q=Qasar+Al+Qasimiah+Restaurant,+Al+Nad,+Al+Qasimia,+Sharjah&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Map showing Qasar Al Qasimiah location in Al Nad, Sharjah">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="section section-alt">
+    <div class="container">
+      <div class="page-head">
+        <p class="eyebrow">Contact</p>
+        <h1>Get in touch</h1>
+        <p>Call ahead for takeaway, reach us by email, or order delivery online.</p>
+      </div>
+
+      <div class="contact-cards reveal" style="margin-top: 30px;">
+        <div class="contact-card">
+          <h3>Mobile</h3>
+          <div class="value"><a class="dd-link" href="tel:+971527541006">+971 52 754 1006</a></div>
+          <a href="tel:+971527541006" class="btn btn-outline btn-sm">Call Now</a>
+        </div>
+        <div class="contact-card">
+          <h3>Landline</h3>
+          <div class="value"><a class="dd-link" href="tel:+97165515278">+971 6 551 5278</a></div>
+          <a href="tel:+97165515278" class="btn btn-outline btn-sm">Call Now</a>
+        </div>
+        <div class="contact-card">
+          <h3>Email</h3>
+          <div class="value" style="font-size:16px; word-break:break-all;"><a class="dd-link" href="mailto:qasar.al.qasimia@gmail.com">qasar.al.qasimia@gmail.com</a></div>
+          <a href="mailto:qasar.al.qasimia@gmail.com" class="btn btn-outline btn-sm">Send Email</a>
+        </div>
+        <div class="contact-card">
+          <h3>Order Online</h3>
+          <div class="value" style="font-size:16px;">Delivery &amp; takeaway via Talabat</div>
+          <a href="https://www.talabat.com/uae/restaurant/39297/qasar-al-qasimiah-restaurant-al-nad?aid=1547" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Order on Talabat</a>
+        </div>
+      </div>
+
+      <div class="info-panel reveal" style="margin-top:38px;">
+        <div>
+          <dt>Address</dt>
+          <dd>Lootah Buildings, Al Nad, Al Qasimia, Sharjah, UAE</dd>
+        </div>
+        <div>
+          <dt>Directions</dt>
+          <dd><a class="dd-link" href="https://www.google.com/maps/dir/?api=1&destination=Qasar+Al+Qasimiah+Restaurant%2C+Lootah+Building%2C+Al+Nad%2C+Al+Qasimia%2C+Sharjah" target="_blank" rel="noopener">Open in Google Maps →</a></dd>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="kilim-dark"></div>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-mark">Qasar Al Qasimiah</div>
+        <p>Pakistani restaurant in Al Nad, Sharjah — biryani, karahi and tandoor grills for dine-in, takeaway and delivery.</p>
+        <p style="margin-top: 15px; font-size: 0.8rem; color: #9A8E72;">
+          Portfolio Demo Notice: Independent concept layout created for showcase purposes. Not officially endorsed or managed by the business.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#location">Location</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:+971527541006">+971 52 754 1006</a>
+        <a href="tel:+97165515278">+971 6 551 5278</a>
+        <a href="mailto:qasar.al.qasimia@gmail.com">qasar.al.qasimia@gmail.com</a>
+      </div>
+      <div class="footer-col">
+        <h4>Order</h4>
+        <a href="https://www.talabat.com/uae/restaurant/39297/qasar-al-qasimiah-restaurant-al-nad?aid=1547" target="_blank" rel="noopener">Order on Talabat</a>
+        <a href="#location">Get Directions</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Qasar Al Qasimiah Demo, Al Nad, Sharjah</span>
+      <span>Portfolio Concept Design</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var toggle = document.getElementById('navToggle');
+  var nav = document.getElementById('mainNav');
+  if(!toggle || !nav) return;
+  toggle.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
+
+(function(){
+  var tabs = document.querySelectorAll('.menu-tabs a');
+  var sections = document.querySelectorAll('.menu-category');
+  if(!tabs.length || !sections.length) return;
+
+  var byId = {};
+  tabs.forEach(function(t){ byId[t.getAttribute('href').slice(1)] = t; });
+
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        tabs.forEach(function(t){ t.classList.remove('active'); });
+        var active = byId[entry.target.id];
+        if(active){
+          active.classList.add('active');
+          active.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+        }
+      }
+    });
+  }, { rootMargin: '-170px 0px -60% 0px', threshold: 0 });
+
+  sections.forEach(function(s){ observer.observe(s); });
+})();
+
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if(!els.length) return;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduced){
+    els.forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(function(el){ io.observe(el); });
+})();
+
+(function(){
+  var navLinks = document.querySelectorAll('.main-nav a');
+  var pageSections = document.querySelectorAll('main > section');
+  
+  window.addEventListener('scroll', function(){
+    var current = '';
+    pageSections.forEach(function(section){
+      var sectionTop = section.offsetTop;
+      if(pageYOffset >= sectionTop - 150){
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(function(a){
+      a.classList.remove('active');
+      if(a.getAttribute('href') === '#' + current){
+        a.classList.add('active');
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

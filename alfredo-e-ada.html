@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alfredo e Ada - Roman Trattoria (Portfolio Demo)</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Public+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  --bg-primary: #f9f7f1;
+  --bg-secondary: #f0ede3;
+  --bg-olive-tint: #eaece4;
+  --accent-olive: #424e32;
+  --accent-olive-light: #5b6a47;
+  --text-primary: #2e3029;
+  --text-secondary: #5a5f51;
+  --border-color: #dcd8cb;
+  --border-olive: #aeb5a2;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Public Sans', sans-serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Crimson Pro', serif;
+  font-weight: 400;
+  color: var(--accent-olive);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.demo-banner {
+  background-color: var(--accent-olive);
+  color: #fff;
+  text-align: center;
+  padding: 8px 15px;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.lang-switch {
+  position: absolute;
+  top: 50px;
+  right: 40px;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Public Sans', sans-serif;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.lang-btn:hover {
+  color: var(--accent-olive);
+}
+
+.lang-sep {
+  margin: 0 8px;
+  color: var(--border-color);
+}
+
+.lang-it {
+  display: none;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.site-header {
+  position: relative;
+  padding: 55px 0 35px;
+  text-align: center;
+  background-color: var(--bg-primary);
+}
+
+.site-title {
+  font-size: 3rem;
+  letter-spacing: 0.02em;
+  margin-bottom: 5px;
+  color: var(--accent-olive);
+}
+
+.site-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 35px;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 12px 0;
+}
+
+.main-nav a {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: color 0.2s ease;
+}
+
+.main-nav a:hover {
+  color: var(--accent-olive);
+}
+
+.hero {
+  margin: 20px auto 50px;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.image-slot {
+  width: 100%;
+  height: 40vh;
+  min-height: 300px;
+  max-height: 450px;
+  background-color: var(--bg-secondary);
+  border: 1px dashed var(--border-olive);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+}
+
+.hero-caption {
+  font-family: 'Crimson Pro', serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  text-align: right;
+  margin-top: 12px;
+  color: var(--accent-olive-light);
+}
+
+.section-padding {
+  padding: 80px 0;
+}
+
+.section-title {
+  font-size: 2.4rem;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.bg-tint {
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.split-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.split-text h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.split-text p {
+  margin-bottom: 18px;
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.split-image .image-slot {
+  height: 400px;
+}
+
+.menu-intro {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 50px;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px 70px;
+}
+
+.menu-category {
+  margin-bottom: 20px;
+}
+
+.menu-category-title {
+  font-size: 1.6rem;
+  border-bottom: 1px solid var(--border-olive);
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+  color: var(--accent-olive-light);
+}
+
+.menu-item {
+  margin-bottom: 18px;
+}
+
+.menu-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.menu-item-name {
+  font-family: 'Crimson Pro', serif;
+  font-size: 1.25rem;
+  color: var(--text-primary);
+}
+
+.menu-item-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.gallery-grid .image-slot {
+  height: 240px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.info-block h3 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: var(--accent-olive-light);
+}
+
+.info-block p {
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.map-container {
+  width: 100%;
+  height: 280px;
+  background-color: var(--bg-olive-tint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-olive-light);
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  border: 1px solid var(--border-olive);
+}
+
+.primary-button {
+  display: inline-block;
+  background-color: var(--accent-olive);
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  margin-top: 15px;
+  transition: background-color 0.2s ease;
+}
+
+.primary-button:hover {
+  background-color: var(--text-primary);
+}
+
+.outline-button {
+  display: inline-block;
+  background-color: transparent;
+  color: var(--accent-olive);
+  border: 1px solid var(--accent-olive);
+  padding: 11px 23px;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  margin-top: 15px;
+  transition: all 0.2s ease;
+}
+
+.outline-button:hover {
+  background-color: var(--accent-olive);
+  color: #fff;
+}
+
+.site-footer {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  text-align: center;
+  padding: 60px 20px;
+  border-top: 1px solid var(--border-olive);
+}
+
+.site-footer h2 {
+  color: var(--accent-olive);
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.site-footer p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.site-footer a {
+  text-decoration: underline;
+  color: var(--accent-olive-light);
+  transition: color 0.2s ease;
+}
+
+.site-footer a:hover {
+  color: var(--accent-olive);
+}
+
+.mobile-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--bg-primary);
+  border-top: 1px solid var(--border-olive);
+  padding: 15px 0;
+  z-index: 100;
+}
+
+.mobile-bar-inner {
+  display: flex;
+  justify-content: space-around;
+}
+
+.mobile-bar a {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--accent-olive);
+}
+
+@media (max-width: 900px) {
+  .split-layout, .menu-grid {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .lang-switch {
+    top: 35px;
+    right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-title {
+    font-size: 2.2rem;
+  }
+  .main-nav {
+    display: none;
+  }
+  .mobile-bar {
+    display: block;
+  }
+  body {
+    padding-bottom: 60px;
+  }
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+  .section-padding {
+    padding: 60px 0;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="demo-banner">
+  Portfolio Showcase Project — Unofficial concept layout, not officially endorsed by or affiliated with any real establishment.
+</div>
+
+<header class="site-header container">
+  <div class="lang-switch">
+    <button id="btn-en" class="lang-btn" onclick="setLanguage('en')">EN</button>
+    <span class="lang-sep">|</span>
+    <button id="btn-it" class="lang-btn" onclick="setLanguage('it')">IT</button>
+  </div>
+  
+  <h1 class="site-title">Alfredo e Ada</h1>
+  <p class="site-subtitle">Trattoria in Roma</p>
+  <nav class="main-nav">
+    <a href="#about">
+      <span class="lang-en">About</span>
+      <span class="lang-it">Chi Siamo</span>
+    </a>
+    <a href="#menu">Menu</a>
+    <a href="#gallery">
+      <span class="lang-en">Gallery</span>
+      <span class="lang-it">Galleria</span>
+    </a>
+    <a href="#visit">
+      <span class="lang-en">Visit & Order</span>
+      <span class="lang-it">Visita e Ordina</span>
+    </a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="image-slot">Placeholder</div>
+    <p class="hero-caption container">
+      <span class="lang-en">Honest Roman cooking on Via dei Banchi Nuovi.</span>
+      <span class="lang-it">Sincera cucina romana in Via dei Banchi Nuovi.</span>
+    </p>
+  </section>
+
+  <section id="about" class="bg-tint section-padding">
+    <div class="container split-layout">
+      <div class="split-text">
+        <h2>
+          <span class="lang-en">A Roman Kitchen</span>
+          <span class="lang-it">Una Cucina Romana</span>
+        </h2>
+        <div class="lang-en">
+          <p>Tucked away on Via dei Banchi Nuovi, just a short walk from Piazza Navona, Alfredo e Ada captures the warm, timeless spirit of traditional Roman neighborhood trattorias.</p>
+          <p>The culinary approach here keeps things simple and deeply rooted in Laziale heritage: crisp Pecorino Romano, savory guanciale, fresh market produce, and honest olive oil. The dining space is cozy and intimate, intended for sharing a quiet bottle of house wine and a warm plate of pasta.</p>
+          <p>Whether you're stopping by for a quick plate of Cacio e Pepe or settling in for something heartier, you'll find a welcoming atmosphere.</p>
+        </div>
+        <div class="lang-it">
+          <p>Nascosto in Via dei Banchi Nuovi, a due passi da Piazza Navona, Alfredo e Ada cattura lo spirito caldo e senza tempo delle tradizionali trattorie romane.</p>
+          <p>L'approccio culinario qui mantiene le cose semplici e profondamente radicate nella tradizione laziale: Pecorino Romano, guanciale saporito, prodotti freschi del mercato e olio d'oliva genuino. Lo spazio da pranzo è accogliente e intimo, pensato per condividere una tranquilla bottiglia di vino della casa e un piatto di pasta calda.</p>
+          <p>Che vi fermiate per un veloce piatto di Cacio e Pepe o per qualcosa di più sostanzioso, troverete un'atmosfera accogliente.</p>
+        </div>
+      </div>
+      <div class="split-image">
+        <div class="image-slot">Placeholder</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu" class="section-padding container">
+    <h2 class="section-title">Menu</h2>
+    <p class="menu-intro">
+      <span class="lang-en">Our offerings draw inspiration from classical Roman trattoria traditions, highlighting seasonal freshness and timeless flavors.</span>
+      <span class="lang-it">Le nostre proposte traggono ispirazione dalle tradizioni delle classiche trattorie romane, valorizzando la freschezza stagionale e i sapori di un tempo.</span>
+    </p>
+    
+    <div class="menu-grid">
+      <div class="menu-column">
+        <div class="menu-category">
+          <h3 class="menu-category-title">Antipasti</h3>
+          
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <div class="menu-item-name">Bruschette</div>
+            </div>
+            <div class="menu-item-desc">
+              <span class="lang-en">Toasted artisan bread with fresh vine tomatoes and extra virgin olive oil</span>
+              <span class="lang-it">Pane casereccio tostato con pomodori freschi e olio extravergine d'oliva</span>
+            </div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <div class="menu-item-name">Focaccia</div>
+            </div>
+            <div class="menu-item-desc">
+              <span class="lang-en">Oven-baked flatbread infused with aromatic rosemary and sea salt</span>
+              <span class="lang-it">Focaccia cotta al forno aromatizzata con rosmarino fresco e sale marino</span>
+            </div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <div class="menu-item-name">Tomato Cream Soup</div>
+            </div>
+            <div class="menu-item-desc">
+              <span class="lang-en">Rich, comforting seasonal tomato preparation</span>
+              <span class="lang-it">Ricca e reconfortante zuppa di pomodoro di stagione</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-category">
+          <h3 class="menu-category-title">Primi</h3>
+          
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <div class="menu-item-name">Tonnarelli Cacio e Pepe</div>
+            </div>
+            <div class="menu-item-desc">
+              <span class="lang-en">Aged Pecorino Romano, freshly cracked black pepper</span>
+              <span class="lang-it">Pecorino Romano stagionato, pepe nero macinato fresco</span>
+            </div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <div class="menu-item-name">Rigatoni alla Carbonara</div>
+            </div>
+            <div class="menu-item-desc">
+              <span class="lang-en">Cured guanciale, rich egg yolks, Pecorino Romano, black pepper</span>
+              <span class="lang-it">Guanciale stagionato, tuorli d'uovo ricchi, Pecorino Romano, pepe nero</span>
+            </div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <div class="menu-item-name">Bucatini all'Amatriciana</div>
+            </div>
+            <div class="menu-item-desc">
+              <span class="lang-en">Ripe tomatoes, cured guanciale, sharp Pecorino Romano</span>
+              <span class="lang-it">Pomodori maturi, guanciale croccante, Pecorino Romano</span>
+            </div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <div class="menu-item-name">Fettuccine Alfredo</div>
+            </div>
+            <div class="menu-item-desc">
+              <span class="lang-en">Handmade pasta tossed with rich butter and Parmigiano-Reggiano</span>
+              <span class="lang-it">Pasta fatta a mano mantecata con burro ricco e Parmigiano-Reggiano</span>
+            </div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <div class="menu-item-name">Lasagna</div>
+            </div>
+            <div class="menu-item-desc">
+              <span class="lang-en">Baked layered pasta featuring slow-cooked traditional meat ragù</span>
+              <span class="lang-it">Pasta al forno a strati con ragù di carne tradizionale a cottura lenta</span>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <div class="menu-item-name">Gnocchi</div>
+            </div>
+            <div class="menu-item-desc">
+              <span class="lang-en">Tender potato dumplings, highlighted on traditional weekly menus</span>
+              <span class="lang-it">Morbidi gnocchi di patate, protagonisti della tradizione settimanale</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="menu-column">
+        <div class="menu-category">
+          <h3 class="menu-category-title">Secondi</h3>
+          
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <div class="menu-item-name">Saltimbocca alla Romana</div>
+            </div>
+            <div class="menu-item-desc">
+              <span class="lang-en">Tender veal cutlet layered with prosciutto and sage in a white wine reduction</span>
+              <span class="lang-it">Tenere scaloppine di vitello con prosciutto e salvia in riduzione di vino bianco</span>
+            </div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <div class="menu-item-name">Coda alla Vaccinara</div>
+            </div>
+            <div class="menu-item-desc">
+              <span class="lang-en">Classic braised oxtail stew simmered slowly with tomatoes and aromatic celery</span>
+              <span class="lang-it">Classico spezzatino di coda brasata sobbollito lentamente con pomodoro e sedano</span>
+            </div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <div class="menu-item-name">Polpette</div>
+            </div>
+            <div class="menu-item-desc">
+              <span class="lang-en">Hearty beef and pork meatballs simmered in a savory tomato sauce</span>
+              <span class="lang-it">Polpette caserecce di manzo e maiale in saporita salsa di pomodoro</span>
+            </div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <div class="menu-item-name">Parmigiana</div>
+            </div>
+            <div class="menu-item-desc">
+              <span class="lang-en">Baked layered eggplant with rich tomato sauce and melted cheese</span>
+              <span class="lang-it">Melanzane alla parmigiana cotte al forno con salsa di pomodoro e formaggio</span>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <div class="menu-item-name">Meat & Fish of the Day / Carne e Pesce del Giorno</div>
+            </div>
+            <div class="menu-item-desc">
+              <span class="lang-en">Daily market selections prepared according to seasonal availability</span>
+              <span class="lang-it">Selezioni giornaliere del mercato preparate secondo disponibilità stagionale</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="menu-category">
+          <h3 class="menu-category-title">Contorni</h3>
+          
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <div class="menu-item-name">Carciofi alla Romana</div>
+            </div>
+            <div class="menu-item-desc">
+              <span class="lang-en">Traditional Roman-style whole artichokes seasoned with garlic and wild mint</span>
+              <span class="lang-it">Carciofi interi alla romana conditi con aglio e mentuccia selvatica</span>
+            </div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <div class="menu-item-name">Vegetarian Dishes / Contorni di Stagione</div>
+            </div>
+            <div class="menu-item-desc">
+              <span class="lang-en">An assortment of fresh vegetables sourced directly from local markets</span>
+              <span class="lang-it">Un assortimento di verdure fresche provenienti direttamente dai mercati locali</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-category">
+          <h3 class="menu-category-title">Dolci & Bevande</h3>
+          
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <div class="menu-item-name">House Desserts / Dolci della Casa</div>
+            </div>
+            <div class="menu-item-desc">
+              <span class="lang-en">Handcrafted sweet creations inspired by Italian confectionery traditions</span>
+              <span class="lang-it">Creazioni dolciarie artigianali ispirate alla tradizione italiana</span>
+            </div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <div class="menu-item-name">Wine, Beer & Coffee</div>
+            </div>
+            <div class="menu-item-desc">
+              <span class="lang-en">Regional Laziale house wines, artisanal beers, and classic Italian espresso</span>
+              <span class="lang-it">Vini tipici della casa laziale, birre artigianali e classico espresso italiano</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" class="bg-tint section-padding">
+    <div class="container">
+      <h2 class="section-title">
+        <span class="lang-en">Atmosphere</span>
+        <span class="lang-it">Atmosfera</span>
+      </h2>
+      <div class="gallery-grid">
+        <div class="image-slot">Placeholder</div>
+        <div class="image-slot">Placeholder</div>
+        <div class="image-slot">Placeholder</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="visit" class="section-padding container">
+    <h2 class="section-title">
+      <span class="lang-en">Location & Ordering</span>
+      <span class="lang-it">Posizione e Asporto</span>
+    </h2>
+    
+    <div class="info-grid">
+      <div class="info-block">
+        <h3>
+          <span class="lang-en">Find Us in Rome</span>
+          <span class="lang-it">Dove Siamo</span>
+        </h3>
+        <p><strong>Via dei Banchi Nuovi, 14</strong></p>
+        <p>00186 Rome, Italy</p>
+        <p style="margin-top: 10px;">
+          <span class="lang-en">Situated in the heart of Rome's historic center, moments away from cultural landmarks.</span>
+          <span class="lang-it">Situato nel cuore del centro storico di Roma, a pochi passi da punti di riferimento culturali.</span>
+        </p>
+        <a href="https://maps.google.com/?q=Via+dei+Banchi+Nuovi+14+Rome" class="primary-button" target="_blank">
+          <span class="lang-en">Open in Google Maps</span>
+          <span class="lang-it">Apri in Google Maps</span>
+        </a>
+      </div>
+      
+      <div class="info-block">
+        <h3>
+          <span class="lang-en">Hours & Takeaway</span>
+          <span class="lang-it">Orari e Asporto</span>
+        </h3>
+        <p><strong>Tue – Sat:</strong> 12:00 – 15:00, 19:00 – 22:00</p>
+        <p><strong>Sun & Mon:</strong> Closed / Chiuso</p>
+        <p style="margin-top: 15px;">
+          <span class="lang-en">Traditional hospitality served table-side, with takeaway options available for enjoying meals at home.</span>
+          <span class="lang-it">Ospitalità tradizionale servita al tavolo, con opzioni di asporto disponibili per gustare i piatti a casa.</span>
+        </p>
+        <a href="tel:+390639737741" class="outline-button">
+          <span class="lang-en">Call to Order or Reserve</span>
+          <span class="lang-it">Chiama per Ordinare o Prenotare</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="map-container">
+      <iframe 
+        src="https://maps.google.com/maps?q=Via+dei+Banchi+Nuovi+14+Rome&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+        width="100%" 
+        height="100%" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <h2>Alfredo e Ada</h2>
+    <p>Via dei Banchi Nuovi, 14, 00186 Roma RM, Italy</p>
+    <p>Telephone: +39 06 3973 7741</p>
+    <p style="margin-top: 20px; font-size: 0.8rem; color: var(--text-secondary);">
+      Portfolio Demo Notice: This website is an independent development project created for showcase purposes. It is not officially endorsed by, affiliated with, or representative of any active restaurant business.
+    </p>
+    <p style="margin-top: 25px;">
+      <a href="https://www.facebook.com/people/Alfredo-e-Ada/100054244071331/" target="_blank">
+        <span class="lang-en">Follow updates online</span>
+        <span class="lang-it">Segui gli aggiornamenti online</span>
+      </a>
+    </p>
+  </div>
+</footer>
+
+<div class="mobile-bar">
+  <div class="mobile-bar-inner">
+    <a href="tel:+390639737741">CALL / ORDINA</a>
+    <a href="#menu">MENU</a>
+    <a href="https://maps.google.com/?q=Via+dei+Banchi+Nuovi+14+Rome" target="_blank">MAP</a>
+  </div>
+</div>
+
+<script>
+function setLanguage(lang) {
+  const enElements = document.querySelectorAll('.lang-en');
+  const itElements = document.querySelectorAll('.lang-it');
+  const btnEn = document.getElementById('btn-en');
+  const btnIt = document.getElementById('btn-it');
+
+  if (lang === 'en') {
+    enElements.forEach(el => el.style.display = 'inline-block');
+    itElements.forEach(el => el.style.display = 'none');
+    btnEn.style.fontWeight = '600';
+    btnEn.style.color = 'var(--accent-olive)';
+    btnIt.style.fontWeight = '400';
+    btnIt.style.color = 'var(--text-secondary)';
+  } else {
+    enElements.forEach(el => el.style.display = 'none');
+    itElements.forEach(el => el.style.display = 'inline-block');
+    btnIt.style.fontWeight = '600';
+    btnIt.style.color = 'var(--accent-olive)';
+    btnEn.style.fontWeight = '400';
+    btnEn.style.color = 'var(--text-secondary)';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  setLanguage('en');
+});
+</script>
+</body>
+</html>
